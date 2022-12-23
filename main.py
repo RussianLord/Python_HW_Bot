@@ -1,5 +1,5 @@
 import telebot
-import os, random
+import os, random, glob
 from time_dys import show_time
 from config import TOKEN
 
@@ -43,23 +43,23 @@ def send_text(message):
         bot.send_message('/start')
     elif message.text == 'Soul bleach':
         bot.send_message(message.chat.id, 'Загружается...')
-        audio = open(r'Python_HW_Bot/songs/08 Soul Bleach.flac', 'rb')
+        audio = open(r'songs/08 Soul Bleach.flac', 'rb')
         bot.send_audio(message.chat.id, audio)
         audio.close()
         bot.clear_step_handler_by_chat_id()
     elif message.text == 'From the Heart':
         bot.send_message(message.chat.id, 'Загружается...')
-        audio = open(r'Python_HW_Bot/songs/11 From the Heart of the Darkness.flac', 'rb')
+        audio = open(r'songs/11 From the Heart of the Darkness.flac', 'rb')
         bot.send_audio(message.chat.id, audio)
         audio.close()
         bot.send_message('/start')
     elif message.text == 'Случайная из альбома(11)':
         bot.send_message(message.chat.id, 'Загружается...')
-        files = os.listdir('Python_HW_Bot/songs')
+        files = os.listdir('songs/')
         list = []
         for x in files:
                 list.append(x)
-        random_song = f'Python_HW_Bot/songs/{random.choice(list)}'
+        random_song = f'songs/{random.choice(list)}'
         audio = open(random_song,'rb')
         bot.send_audio(message.chat.id, audio)
         audio.close()
