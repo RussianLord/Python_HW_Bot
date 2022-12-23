@@ -34,22 +34,22 @@ def send_text(message):
     elif message.text == 'Да':
         # bot.send_message(message.chat.id, 'Родила тебя пизда!')  
         markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-        item1 = telebot.types.KeyboardButton('Soul bleach')
-        item2 = telebot.types.KeyboardButton('From the Heart')
+        item1 = telebot.types.KeyboardButton('Rumble')
+        item2 = telebot.types.KeyboardButton('Big Apple')
         item3 = telebot.types.KeyboardButton('Случайная из альбома(11)')
         markup.add(item1,item2, item3)
         bot.send_message(message.chat.id,f'Выбирай одну из 3-х или пусть играет случайная.', reply_markup=markup) 
     elif message.text == 'Нет':
         bot.send_message('/start')
-    elif message.text == 'Soul bleach':
+    elif message.text == 'Rumble':
         bot.send_message(message.chat.id, 'Загружается...')
-        audio = open(r'songs/08 Soul Bleach.flac', 'rb')
+        audio = open(r'songs/Tee Lopes - Rumble in the Zoo.mp3', 'rb')
         bot.send_audio(message.chat.id, audio)
         audio.close()
         bot.clear_step_handler_by_chat_id()
-    elif message.text == 'From the Heart':
+    elif message.text == 'Big Apple':
         bot.send_message(message.chat.id, 'Загружается...')
-        audio = open(r'songs/11 From the Heart of the Darkness.flac', 'rb')
+        audio = open(r'songs/Tee Lopes - Big Apple, 3 PM.mp3', 'rb')
         bot.send_audio(message.chat.id, audio)
         audio.close()
         bot.send_message('/start')
